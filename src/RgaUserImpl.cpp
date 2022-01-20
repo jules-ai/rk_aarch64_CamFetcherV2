@@ -39,7 +39,7 @@ RgaUserImpl::RgaUserImpl(int height, int width, int rotate, int mirror, int src)
 			abort();
 		}
 		mRga_ROTA->ops->initCtx(mRga_ROTA);
-		mRga_ROTA->ops->setSrcFormat(mRga_ROTA, V4L2_PIX_FMT_YUYV, BUFFER_WIDTH_SRC, BUFFER_HEIGHT_SRC);
+		mRga_ROTA->ops->setSrcFormat(mRga_ROTA, src, BUFFER_WIDTH_SRC, BUFFER_HEIGHT_SRC);
 		mRga_ROTA->ops->setDstFormat(mRga_ROTA, V4L2_PIX_FMT_BGR24, BUFFER_WIDTH_DEST, BUFFER_HEIGHT_DEST);
 		mRga_ROTA->ops->setRotate(mRga_ROTA, RgaRotate(rotate));
 		mRga_ROTA->ops->setDstBufferPtr(mRga_ROTA, (unsigned char *)inner_buffer);
@@ -59,7 +59,7 @@ RgaUserImpl::RgaUserImpl(int height, int width, int rotate, int mirror, int src)
 		if(rotate)
 			mRga_FLIP->ops->setSrcFormat(mRga_FLIP, V4L2_PIX_FMT_BGR24, BUFFER_WIDTH_DEST, BUFFER_HEIGHT_DEST);
 		else
-			mRga_FLIP->ops->setSrcFormat(mRga_FLIP, V4L2_PIX_FMT_YUYV, BUFFER_WIDTH_DEST, BUFFER_HEIGHT_DEST);
+			mRga_FLIP->ops->setSrcFormat(mRga_FLIP, src, BUFFER_WIDTH_DEST, BUFFER_HEIGHT_DEST);
 
 		mRga_FLIP->ops->setDstFormat(mRga_FLIP, V4L2_PIX_FMT_BGR24, BUFFER_WIDTH_DEST, BUFFER_HEIGHT_DEST);
 		mRga_FLIP->ops->setRotate(mRga_FLIP, RgaRotate(mirror+3));

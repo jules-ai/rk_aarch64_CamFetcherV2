@@ -65,6 +65,22 @@ extern "C" {
 			void* mid_handle;
 		};
 
+
+		class FetcherApi nv12Convertor
+		{
+		public:
+			nv12Convertor();
+			~nv12Convertor();
+
+			// 以下接口返回0为正确执行，否则请查看屏幕所打印的错误信息
+			int Init(int src_height, int src_width, int height = 640, int width = 480, int rotate = CAM_ROTATE_NONE , int mirror = CAM_FLIP_NONE);
+			int Cvt(char * source, char * dest);
+
+		private:
+			void* inner_handle;
+			void* outter_handle;
+			void* mid_handle;
+		};
 	}
 
 #ifdef __cplusplus

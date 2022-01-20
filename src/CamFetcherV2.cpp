@@ -134,7 +134,7 @@ namespace rk_aarch64_driver
 			return -1;
 		}
 
-		outter_handle = new RgaUserImpl(height,width,rotate,mirror);
+		outter_handle = new RgaUserImpl(height,width,rotate,mirror,V4L2_PIX_FMT_YUYV);
 
 		return 0;
 	}
@@ -156,4 +156,10 @@ namespace rk_aarch64_driver
 
 		return 0;
 	}
+
+	int nv12Convertor::Init(int src_height, int src_width, int height /*= 640*/, int width /*= 480*/, int rotate /*= CAM_ROTATE_NONE */, int mirror /*= CAM_FLIP_NONE*/)
+	{
+
+	}
+
 }
