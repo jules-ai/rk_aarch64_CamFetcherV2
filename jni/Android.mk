@@ -7,13 +7,11 @@ include $(CLEAR_VARS)
 $(info "current path :"$(LOCAL_PATH)) 
 
 #opencv库
-ifeq ($(PRODUCT_TYPE),EXE)
-	OPENCVROOT :=$(LOCAL_PATH)/../opencv-3100
-	OPENCV_CAMERA_MODULES := on
-	OPENCV_INSTALL_MODULES := on
-	OPENCV_LIB_TYPE:=STATIC
-	include $(OPENCVROOT)/sdk/native/jni/OpenCV.mk  #源码列表
-endif
+OPENCVROOT :=$(LOCAL_PATH)/../opencv-3100
+OPENCV_CAMERA_MODULES := on
+OPENCV_INSTALL_MODULES := on
+OPENCV_LIB_TYPE:=STATIC
+include $(OPENCVROOT)/sdk/native/jni/OpenCV.mk  #源码列表
 
 #头文件路径
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/../src
