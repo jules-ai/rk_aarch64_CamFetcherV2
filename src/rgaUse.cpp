@@ -104,7 +104,7 @@ namespace jules
 
 			if (src.cols!=src_image_w||src.rows!=src_image_h)
 			{
-				printf("Error input image size is not 640x480 !\n");
+				printf("Error input image size is not 1280x720 !\n");
 				abort();
 			}
 

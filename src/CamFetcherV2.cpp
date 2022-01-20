@@ -2,6 +2,7 @@
 #include "CamFetcherImpl.h"
 #include <assert.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <vector>
 #include <fcntl.h>
@@ -37,6 +38,11 @@ namespace rk_aarch64_driver
 
 	int CamFetcher::Init(int device_id /*= 0*/, int fps /*= 25*/, int height /*= 640*/, int width /*= 480*/, int rotate /*= CAM_ROTATE_NONE */, int mirror /*= CAM_FLIP_NONE*/)
 	{
+#ifndef __aarch64__
+		printf("This lib doesn't work on this borad. Please contact Jules.\n");
+		abort();
+		return -996;
+#endif
 		if (nullptr!=inner_handle)
 		{
 			printf("Init Error: VideoFetcher has already been initialized once!\n");
@@ -66,6 +72,11 @@ namespace rk_aarch64_driver
 
 	int CamFetcher::Start()
 	{
+#ifndef __aarch64__
+		printf("This lib doesn't work on this borad. Please contact Jules.\n");
+		abort();
+		return -996;
+#endif
 		if (nullptr==inner_handle)
 		{
 			printf("Start Error: VideoFetcher has not been initialized yet!\n");
@@ -77,6 +88,11 @@ namespace rk_aarch64_driver
 
 	int CamFetcher::Get(char * buffer)
 	{
+#ifndef __aarch64__
+		printf("This lib doesn't work on this borad. Please contact Jules.\n");
+		abort();
+		return -996;
+#endif
 		if (nullptr==inner_handle)
 		{
 			printf("Start Error: VideoFetcher has not been initialized yet!\n");
@@ -102,6 +118,11 @@ namespace rk_aarch64_driver
 
 	int CamFetcher::Stop()
 	{
+#ifndef __aarch64__
+		printf("This lib doesn't work on this borad. Please contact Jules.\n");
+		abort();
+		return -996;
+#endif
 		if (nullptr==inner_handle)
 		{
 			printf("Start Error: VideoFetcher has not been initialized yet!\n");
@@ -128,6 +149,11 @@ namespace rk_aarch64_driver
 
 	int yuyvConvertor::Init(int height /*= 640*/, int width /*= 480*/, int rotate /*= CAM_ROTATE_NONE */, int mirror /*= CAM_FLIP_NONE*/)
 	{
+#ifndef __aarch64__
+		printf("This lib doesn't work on this borad. Please contact Jules.\n");
+		abort();
+		return -996;
+#endif
 		if (nullptr!=outter_handle)
 		{
 			printf("Init Error: yuyvConvertor has already been initialized once!\n");
@@ -142,6 +168,11 @@ namespace rk_aarch64_driver
 
 	int yuyvConvertor::Cvt(char * source, char * dest)
 	{
+#ifndef __aarch64__
+		printf("This lib doesn't work on this borad. Please contact Jules.\n");
+		abort();
+		return -996;
+#endif
 		if (nullptr==outter_handle)
 		{
 			printf("Start Error: VideoFetcher has not been initialized yet!\n");
@@ -156,10 +187,4 @@ namespace rk_aarch64_driver
 
 		return 0;
 	}
-
-	int nv12Convertor::Init(int src_height, int src_width, int height /*= 640*/, int width /*= 480*/, int rotate /*= CAM_ROTATE_NONE */, int mirror /*= CAM_FLIP_NONE*/)
-	{
-
-	}
-
 }
