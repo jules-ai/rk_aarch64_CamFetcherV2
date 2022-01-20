@@ -44,7 +44,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>..\src;..\opencv-3100\sdk\native\jni\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src;..\opencv-3100\sdk\native\jni\include;C:\android-ndk-r15c\sysroot\usr\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -75,6 +75,7 @@
   <ItemGroup>
     <ClCompile Include="..\demo\demo_Cam.cpp" />
     <ClCompile Include="..\demo\demo_CamV2.cpp" />
+    <ClCompile Include="..\demo\test_yuyvConvertor.cpp" />
     <ClCompile Include="..\src\android_rga.cpp" />
     <ClCompile Include="..\src\CamFetcherV2.cpp" />
     <ClCompile Include="..\src\CamFetcherImpl.cpp" />

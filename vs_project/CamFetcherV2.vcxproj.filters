@@ -54,5 +54,8 @@
     <ClCompile Include="..\src\CamFetcherV2.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\demo\test_yuyvConvertor.cpp">
+      <Filter>demo</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -68,14 +68,16 @@ V4l2ToRgaFormat(__u32 v4l2Format, __u32 yuvToRgbMode) {
     case V4L2_PIX_FMT_ABGR32:
         return RK_FORMAT_BGRA_8888;
     case V4L2_PIX_FMT_RGB565:
-        return RK_FORMAT_RGB_565;
-    case V4L2_PIX_FMT_NV12:
-        return RK_FORMAT_YCrCb_420_SP;  // Todo: why is Ycrcb NOT Ycbcr
+		return RK_FORMAT_RGB_565;
+	case V4L2_PIX_FMT_NV12:
+		return RK_FORMAT_YCbCr_420_SP;  // Todo: why is Ycrcb NOT Ycbcr
+	case V4L2_PIX_FMT_NV21:
+		return RK_FORMAT_YCrCb_420_SP;  // Todo: why is Ycrcb NOT Ycbcr
     case V4L2_PIX_FMT_YUV420:
     if(yuvToRgbMode == RGB_TO_YUV)
         return RK_FORMAT_YCbCr_420_P;
     else
-            return RK_FORMAT_YCrCb_420_P; // Todo: why is RK_FORMAT_YCrCb_420_P, not RK_FORMAT_YCbCr_420_P ?
+        return RK_FORMAT_YCrCb_420_P; // Todo: why is RK_FORMAT_YCrCb_420_P, not RK_FORMAT_YCbCr_420_P ?
     case V4L2_PIX_FMT_NV16:
         return RK_FORMAT_YCrCb_422_SP;
 	case V4L2_PIX_FMT_YUYV:
@@ -184,8 +186,9 @@ BytesPerPixel(__u32 v4l2Format)
 static int
 IsYuvFormat(__u32 v4l2Format)
 {
-    switch(v4l2Format) {
-    case V4L2_PIX_FMT_NV12:
+	switch(v4l2Format) {
+	case V4L2_PIX_FMT_NV12:
+	case V4L2_PIX_FMT_NV21:
     case V4L2_PIX_FMT_NV16:
     case V4L2_PIX_FMT_YUV420:
     case V4L2_PIX_FMT_YUYV:

@@ -25,11 +25,11 @@ extern "C" {
 			CAM_ROTATE_270,
 		} CamRotation;
 
-		typedef enum _RgaRotate {
+		typedef enum _CamMirror {
 			CAM_FLIP_NONE = 0,
 			CAM_FLIP_HOR,
 			CAM_FLIP_VER,
-		} RgaRotate;
+		} CamMirror;
 
 		class FetcherApi CamFetcher
 		{
@@ -42,6 +42,22 @@ extern "C" {
 			int Start();
 			int Get(char * buffer);
 			int Stop();
+
+		private:
+			void* inner_handle;
+			void* outter_handle;
+			void* mid_handle;
+		};
+
+		class FetcherApi yuyvConvertor
+		{
+		public:
+			yuyvConvertor();
+			~yuyvConvertor();
+
+			// 以下接口返回0为正确执行，否则请查看屏幕所打印的错误信息
+			int Init(int height = 640, int width = 480, int rotate = CAM_ROTATE_NONE , int mirror = CAM_FLIP_NONE);
+			int Cvt(char * source, char * dest);
 
 		private:
 			void* inner_handle;

@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 
-RgaUserImpl::RgaUserImpl(int height, int width, int rotate, int mirror)
+RgaUserImpl::RgaUserImpl(int height, int width, int rotate, int mirror, int src)
 {
 	int BUFFER_WIDTH_SRC;
 	int BUFFER_HEIGHT_SRC;

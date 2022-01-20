@@ -39,7 +39,7 @@ namespace rk_aarch64_driver
 	{
 		if (nullptr!=inner_handle)
 		{
-			printf("Init Error: VideoFetcher has already ben initialized once!\n");
+			printf("Init Error: VideoFetcher has already been initialized once!\n");
 			return -1;
 		}
 		int format = CamFetcherFormatDDR_YUYV;
@@ -109,5 +109,51 @@ namespace rk_aarch64_driver
 		}
 
 		return ((CamFetcherImpl*)inner_handle)->Stop();
+	}
+	
+
+	yuyvConvertor::yuyvConvertor()
+	{
+		outter_handle = nullptr;
+	}
+
+	yuyvConvertor::~yuyvConvertor()
+	{
+		if (outter_handle)
+		{
+			delete (RgaUserImpl*)outter_handle;
+		}
+	}
+
+
+	int yuyvConvertor::Init(int height /*= 640*/, int width /*= 480*/, int rotate /*= CAM_ROTATE_NONE */, int mirror /*= CAM_FLIP_NONE*/)
+	{
+		if (nullptr!=outter_handle)
+		{
+			printf("Init Error: yuyvConvertor has already been initialized once!\n");
+			return -1;
+		}
+
+		outter_handle = new RgaUserImpl(height,width,rotate,mirror);
+
+		return 0;
+	}
+
+
+	int yuyvConvertor::Cvt(char * source, char * dest)
+	{
+		if (nullptr==outter_handle)
+		{
+			printf("Start Error: VideoFetcher has not been initialized yet!\n");
+			return -2;
+		}
+		int ret = ((RgaUserImpl*)outter_handle)->Get((char *)source, dest);
+		if(ret)
+		{
+			printf("Get Error: RgaUserImpl Get failed[%d]!\n",ret);
+			return ret;
+		}
+
+		return 0;
 	}
 }
