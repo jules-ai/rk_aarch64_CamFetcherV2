@@ -63,7 +63,7 @@ namespace rk_aarch64_driver
 			return ret;
 		}
 
-		outter_handle = new RgaUserImpl(height,width,rotate,mirror);
+		outter_handle = new RgaUserImpl(height,width,rotate,mirror,V4L2_PIX_FMT_YUYV);
 
 		mid_handle = new char [height*width*2];
 
