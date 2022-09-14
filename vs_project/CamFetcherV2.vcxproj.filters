@@ -28,6 +28,9 @@
     <ClInclude Include="..\src\CamFetcherV2.h">
       <Filter>源文件</Filter>
     </ClInclude>
+    <ClInclude Include="..\src\rgaUse.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\android_rga.cpp">
@@ -55,6 +58,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="..\demo\test_yuyvConvertor.cpp">
+      <Filter>demo</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\rgaUse.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\demo\test_rgaUSE.cpp">
       <Filter>demo</Filter>
     </ClCompile>
   </ItemGroup>

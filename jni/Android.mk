@@ -20,7 +20,7 @@ LOCAL_C_INCLUDES += $(LOCAL_PATH)/../src
 #生成的目标文件名
 LOCAL_MODULE := CamFetcherV2
 #源码列表
-SRC_DEMO := ../demo/test_yuyvConvertor.cpp
+SRC_DEMO := ../demo/test_rgaUSE.cpp
 SRC_SUFFIX := *.cpp *.c 
 SRC_ROOT := $(LOCAL_PATH)/../src
 #通配符递归遍历

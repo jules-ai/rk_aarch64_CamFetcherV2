@@ -68,6 +68,7 @@
     <ClInclude Include="..\src\android_rga.h" />
     <ClInclude Include="..\src\CamFetcherV2.h" />
     <ClInclude Include="..\src\CamFetcherImpl.h" />
+    <ClInclude Include="..\src\rgaUse.h" />
     <ClInclude Include="..\src\RgaUserImpl.h" />
     <ClInclude Include="..\src\rga_priv.h" />
     <ClInclude Include="..\src\rockchip_rga.h" />
@@ -75,10 +76,12 @@
   <ItemGroup>
     <ClCompile Include="..\demo\demo_Cam.cpp" />
     <ClCompile Include="..\demo\demo_CamV2.cpp" />
+    <ClCompile Include="..\demo\test_rgaUSE.cpp" />
     <ClCompile Include="..\demo\test_yuyvConvertor.cpp" />
     <ClCompile Include="..\src\android_rga.cpp" />
     <ClCompile Include="..\src\CamFetcherV2.cpp" />
     <ClCompile Include="..\src\CamFetcherImpl.cpp" />
+    <ClCompile Include="..\src\rgaUse.cpp" />
     <ClCompile Include="..\src\RgaUserImpl.cpp" />
     <ClCompile Include="..\src\rockchip_rga.cpp" />
     <ClCompile Include="..\demo\test_rga.cpp" />
